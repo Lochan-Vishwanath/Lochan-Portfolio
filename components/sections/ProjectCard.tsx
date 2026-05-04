@@ -157,7 +157,7 @@ export function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
           </div>
 
           {/* Metrics row – 3 stat tiles */}
-          <div className="grid grid-cols-3 gap-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-sm">
             {metrics.map(({ label, value }) => (
               <div
                 key={label}

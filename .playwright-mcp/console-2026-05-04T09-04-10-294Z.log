@@ -1,0 +1,28 @@
+[    3949ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    4197ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    4313ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    6108ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/api/copilotkit/info:0
+[    6332ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://localhost:3000/api/copilotkit:0
+[    6333ms] [WARNING] Failed to load runtime info (/api/copilotkit/info): Runtime info request failed with status 400 @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    6413ms] [LOG] [Fast Refresh] done in 2203ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  153866ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  153921ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  154121ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/api/copilotkit/info:0
+[  154131ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://localhost:3000/api/copilotkit:0
+[  154131ms] [WARNING] Failed to load runtime info (/api/copilotkit/info): Runtime info request failed with status 400 @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  161998ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  162263ms] [LOG] [Fast Refresh] done in 355ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  162366ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  162462ms] [LOG] [Fast Refresh] done in 198ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  202727ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  202805ms] [LOG] [Fast Refresh] done in 172ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  202913ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  202975ms] [LOG] [Fast Refresh] done in 163ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  225756ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  225971ms] [LOG] [Fast Refresh] done in 144ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  259172ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  259361ms] [LOG] [Fast Refresh] done in 135ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  290615ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  290849ms] [LOG] [Fast Refresh] done in 181ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  361606ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  361817ms] [LOG] [Fast Refresh] done in 170ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431

@@ -9,16 +9,16 @@ import { useActiveSection } from "@/lib/hooks/useActiveSection";
 
 const navLinks = [
   { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
+  { href: "#skills", label: "Skills" },
   { href: "#experience", label: "Experience" },
-  { href: "#writing", label: "Writing" },
+  { href: "#projects", label: "Projects" },
   { href: "#contact", label: "Contact" },
 ];
 
 export function TopNav() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const activeSection = useActiveSection(["about", "projects", "experience", "writing", "contact"]);
+  const activeSection = useActiveSection(["about", "skills", "experience", "projects", "contact"]);
 
   useEffect(() => {
     const handleScroll = () => {

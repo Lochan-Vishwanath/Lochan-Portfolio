@@ -27,6 +27,69 @@
       "agent": "Sisyphus-Junior",
       "category": "quick",
       "updated_at": "2026-05-04T06:13:30.605Z"
+    },
+    "todo:8": {
+      "task_key": "todo:8",
+      "task_label": "8",
+      "task_title": "Hero section + word-by-word animation",
+      "session_id": "ses_20e5e8a69ffebgE8RHtH3fhbXp",
+      "agent": "Sisyphus-Junior",
+      "category": "visual-engineering",
+      "updated_at": "2026-05-04T06:21:16.092Z"
+    },
+    "todo:10": {
+      "task_key": "todo:10",
+      "task_label": "10",
+      "task_title": "Skills section (dark terminal)",
+      "session_id": "ses_20e5e2b0dffeVMBDFTwlXkTTgb",
+      "agent": "Sisyphus-Junior",
+      "category": "quick",
+      "updated_at": "2026-05-04T06:22:42.217Z"
+    },
+    "todo:12": {
+      "task_key": "todo:12",
+      "task_label": "12",
+      "task_title": "ProjectCard + ProjectModal with focus trap",
+      "session_id": "ses_20e4e13a4ffe4A64YOJgANUEle",
+      "agent": "Sisyphus-Junior",
+      "category": "quick",
+      "updated_at": "2026-05-04T06:35:07.171Z"
+    },
+    "todo:16": {
+      "task_key": "todo:16",
+      "task_label": "16",
+      "task_title": "Contact section + coral CTA card",
+      "session_id": "ses_20e436815ffe8KuoQjsX7yCjzq",
+      "agent": "Sisyphus-Junior",
+      "category": "visual-engineering",
+      "updated_at": "2026-05-04T06:50:38.507Z"
+    },
+    "todo:18": {
+      "task_key": "todo:18",
+      "task_label": "18",
+      "task_title": "CopilotKit runtime route with Zen proxy",
+      "session_id": "ses_20e3e2ab8ffenQpeF232BthyoZ",
+      "agent": "Sisyphus-Junior",
+      "category": "business-logic",
+      "updated_at": "2026-05-04T06:53:54.322Z"
+    },
+    "todo:23": {
+      "task_key": "todo:23",
+      "task_label": "23",
+      "task_title": "CP1 — Foundation verification",
+      "session_id": "ses_20e326e0dffepEmaN4wqpgIFst",
+      "agent": "Sisyphus-Junior",
+      "category": "quick",
+      "updated_at": "2026-05-04T07:12:11.072Z"
+    },
+    "final-wave:f1": {
+      "task_key": "final-wave:f1",
+      "task_label": "F1",
+      "task_title": "**Plan Compliance Audit** — `oracle`",
+      "session_id": "ses_20e2459f3ffeHC0QQbP2ALlVrN",
+      "agent": "Sisyphus-Junior",
+      "category": "business-logic",
+      "updated_at": "2026-05-04T07:29:48.001Z"
     }
   }
 }

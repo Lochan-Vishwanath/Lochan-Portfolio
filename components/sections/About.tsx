@@ -6,7 +6,7 @@ export function About() {
   return (
     <section
       id="about"
-      className="py-section bg-canvas"
+      className="pt-8 pb-section bg-canvas"
       aria-labelledby="about-heading"
     >
       <div className="max-w-4xl mx-auto px-lg">

@@ -125,9 +125,38 @@ function CustomRenderActionExecutionMessage({
   return <ToolCallPill name={name} status={status} />;
 }
 
+/* ─── Error Fallback ─── */
+function ChatErrorFallback({ onClose }: { onClose: () => void }) {
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+      <div className="bg-canvas border border-hairline rounded-xl p-lg max-w-sm mx-lg shadow-xl">
+        <h3 className="font-display text-xl text-ink mb-sm">Chat temporarily unavailable</h3>
+        <p className="font-sans text-sm text-body mb-md">
+          The AI assistant is offline. You can still reach out via email or LinkedIn.
+        </p>
+        <div className="flex gap-md">
+          <button
+            onClick={onClose}
+            className="bg-primary text-on-primary px-md py-sm rounded-pill font-sans text-sm font-medium hover:bg-primary-active transition-colors"
+          >
+            Close
+          </button>
+          <a
+            href="mailto:lochan.vish@hotmail.com"
+            className="border border-hairline text-ink px-md py-sm rounded-pill font-sans text-sm font-medium hover:bg-surface-card transition-colors"
+          >
+            Email instead
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ─── Main ChatPopup ─── */
 export function ChatPopup() {
   const [isOpen, setIsOpen] = useState(false);
+  const [hasError, setHasError] = useState(false);
   const [popupKey, setPopupKey] = useState(0);
 
   // Register all 8 CopilotKit frontend tools
@@ -142,6 +171,7 @@ export function ChatPopup() {
 
   const handleOpenChat = useCallback(() => {
     setIsOpen(true);
+    setHasError(false);
     setPopupKey((prev) => prev + 1);
   }, []);
 
@@ -154,8 +184,28 @@ export function ChatPopup() {
   const handleSetOpen = useCallback((open: boolean) => {
     if (!open) {
       setIsOpen(false);
+      setHasError(false);
     }
   }, []);
+
+  // Catch runtime errors from CopilotKit
+  useEffect(() => {
+    if (!isOpen) return;
+    
+    const handleError = (event: ErrorEvent) => {
+      if (event.message?.includes("copilot") || event.message?.includes("Copilot")) {
+        setHasError(true);
+        event.preventDefault();
+      }
+    };
+
+    window.addEventListener("error", handleError);
+    return () => window.removeEventListener("error", handleError);
+  }, [isOpen]);
+
+  if (hasError) {
+    return <ChatErrorFallback onClose={() => setHasError(false)} />;
+  }
 
   return (
     <>
@@ -168,25 +218,27 @@ export function ChatPopup() {
       `}</style>
 
       {isOpen && (
-        <CopilotPopup
-          key={popupKey}
-          defaultOpen
-          onSetOpen={handleSetOpen}
-          clickOutsideToClose
-          labels={{
-            title: "Ask Lochan",
-            initial:
-              "Hi! I'm Lochan's portfolio assistant. Ask me about his work, experience, or skills — I can share his resume, walk through a project, or tell you about his background.",
-            placeholder: "Ask about Lochan…",
-          }}
-          Messages={CustomMessages}
-          UserMessage={CustomUserMessage}
-          AssistantMessage={CustomAssistantMessage}
-          RenderActionExecutionMessage={
-            CustomRenderActionExecutionMessage as any
-          }
-          className="[--copilot-kit-primary-color:#cc785c] [--copilot-kit-background-color:#181715] [--copilot-kit-separator-color:#e6dfd8] [--copilot-kit-secondary-color:#1f1e1b] [--copilot-kit-secondary-contrast-color:#ffffff] [--copilot-kit-contrast-color:#ffffff]"
-        />
+        <div onError={() => setHasError(true)}>
+          <CopilotPopup
+            key={popupKey}
+            defaultOpen
+            onSetOpen={handleSetOpen}
+            clickOutsideToClose
+            labels={{
+              title: "Ask Lochan",
+              initial:
+                "Hi! I'm Lochan's portfolio assistant. Ask me about his work, experience, or skills — I can share his resume, walk through a project, or tell you about his background.",
+              placeholder: "Ask about Lochan…",
+            }}
+            Messages={CustomMessages}
+            UserMessage={CustomUserMessage}
+            AssistantMessage={CustomAssistantMessage}
+            RenderActionExecutionMessage={
+              CustomRenderActionExecutionMessage as any
+            }
+            className="[--copilot-kit-primary-color:#cc785c] [--copilot-kit-background-color:#181715] [--copilot-kit-separator-color:#e6dfd8] [--copilot-kit-secondary-color:#1f1e1b] [--copilot-kit-secondary-contrast-color:#ffffff] [--copilot-kit-contrast-color:#ffffff]"
+          />
+        </div>
       )}
     </>
   );

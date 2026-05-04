@@ -20,9 +20,9 @@ export default function Home() {
       <TopNav />
       <Hero />
       <About />
-      <Projects />
-      <Experience />
       <Skills />
+      <Experience />
+      <Projects />
       <Writing />
       <Contact />
       <Footer />

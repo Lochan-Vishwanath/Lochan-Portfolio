@@ -66,39 +66,50 @@ function WordFadeIn({
   );
 }
 
-const terminalContent = `$ whoami
-→ lochan vishwanath · senior frontend engineer
-$ pwd
-→ /bengaluru/building-with-ai
-$ cat current-stack.txt
-→ react · next.js · typescript
-→ copilotkit · langchain · rag
-→ node · postgres · gemini
-$ uptime
-→ 6 years shipping production frontend`;
+const terminalContent = `$ lochan.profile
+→ Senior Frontend Engineer · 6 Years Experience
+$ lochan.location
+→ Bengaluru, India · Open to Remote
+$ lochan.focus
+→ AI-Powered Interfaces · CopilotKit · RAG
+$ lochan.stack
+→ React · Next.js · TypeScript · Node
+$ lochan.status
+→ Open to Senior FE-AI Roles`;
+
+const avatarUrl = "/avatar.jpg";
 
 export function Hero() {
   return (
     <section
       id="hero"
-      className="pt-24 pb-section bg-canvas overflow-hidden"
+      className="pt-24 pb-12 md:pb-16 bg-canvas overflow-hidden"
       aria-labelledby="hero-heading"
     >
       <div className="max-w-6xl mx-auto px-lg">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.9fr] gap-xl lg:gap-xxl items-start min-h-[50vh]">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.9fr] gap-xl lg:gap-xxl items-start">
           {/* Left Column */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-            className="flex flex-col gap-lg pt-lg min-w-0"
+            className="flex flex-col gap-md pt-lg min-w-0"
           >
-            {/* Availability Pill */}
-            <div className="inline-flex items-center gap-sm bg-surface-card border border-hairline rounded-pill px-md py-sm w-fit">
-              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              <span className="font-sans text-sm text-ink">
-                {profile.availability.label} · {profile.availability.locations}
-              </span>
+            {/* Photo + Availability Row */}
+            <div className="flex items-center gap-md">
+              <div className="relative">
+                <img
+                  src={avatarUrl}
+                  alt={profile.name}
+                  className="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover border-2 border-hairline"
+                />
+                <div className="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-green-500 border-2 border-canvas animate-pulse" />
+              </div>
+              <div className="inline-flex items-center gap-sm bg-surface-card border border-hairline rounded-pill px-md py-sm">
+                <span className="font-sans text-sm text-ink">
+                  {profile.availability.label} · {profile.availability.locations}
+                </span>
+              </div>
             </div>
 
             {/* H1 */}
@@ -157,13 +168,12 @@ export function Hero() {
                     );
                   }
                   if (line.startsWith("→")) {
-                    const isAILine =
-                      line.toLowerCase().includes(" ai ") ||
-                      line.toLowerCase().includes("ai ");
+                    const isStatusLine = line.toLowerCase().includes("open to");
+                    const isFocusLine = line.toLowerCase().includes("ai-powered");
                     return (
                       <div
                         key={i}
-                        className={`text-accent-teal pl-lg ${isAILine ? "text-primary" : ""}`}
+                        className={`pl-lg ${isStatusLine ? "text-primary" : isFocusLine ? "text-accent-teal" : "text-on-dark-soft"}`}
                       >
                         {line}
                       </div>

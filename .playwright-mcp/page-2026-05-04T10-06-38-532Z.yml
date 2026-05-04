@@ -1,0 +1,287 @@
+- generic [active] [ref=e1]:
+  - navigation "Main navigation" [ref=e2]:
+    - generic [ref=e3]:
+      - link "Lochan" [ref=e4] [cursor=pointer]:
+        - /url: "#hero"
+        - img [ref=e5]
+        - generic [ref=e8]: Lochan
+      - generic [ref=e9]:
+        - link "About" [ref=e10] [cursor=pointer]:
+          - /url: "#about"
+          - text: About
+        - link "Skills" [ref=e11] [cursor=pointer]:
+          - /url: "#skills"
+          - text: Skills
+        - link "Experience" [ref=e12] [cursor=pointer]:
+          - /url: "#experience"
+          - text: Experience
+        - link "Projects" [ref=e13] [cursor=pointer]:
+          - /url: "#projects"
+          - text: Projects
+        - link "Contact" [ref=e14] [cursor=pointer]:
+          - /url: "#contact"
+          - text: Contact
+      - generic [ref=e17]: Available
+  - region "Frontend engineer who ships AI." [ref=e18]:
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - img "Lochan Vishwanath" [ref=e24]
+          - generic [ref=e27]: Open to senior FE-AI roles · Bengaluru / Remote
+        - heading "Frontend engineer who ships AI." [level=1] [ref=e28]:
+          - generic "Frontend engineer who ships AI." [ref=e29]:
+            - generic [ref=e30]: Frontend
+            - generic [ref=e31]: engineer
+            - generic [ref=e32]: who
+            - generic [ref=e33]: ships
+            - generic [ref=e34]: AI.
+        - paragraph [ref=e35]: Frontend-heavy full-stack engineer. 6 YoE shipping SaaS, integrations, and AI-assisted product workflows.
+        - generic [ref=e36]:
+          - button "View projects" [ref=e37]
+          - link "Download resume" [ref=e38] [cursor=pointer]:
+            - /url: /resume.pdf
+      - generic [ref=e46]:
+        - generic [ref=e47]: $ lochan.profile
+        - generic [ref=e48]: → Senior Frontend Engineer · 6 Years Experience
+        - generic [ref=e49]: $ lochan.location
+        - generic [ref=e50]: → Bengaluru, India · Open to Remote
+        - generic [ref=e51]: $ lochan.focus
+        - generic [ref=e52]: → AI-Powered Interfaces · CopilotKit · RAG
+        - generic [ref=e53]: $ lochan.stack
+        - generic [ref=e54]: → React · Next.js · TypeScript · Node
+        - generic [ref=e55]: $ lochan.status
+        - generic [ref=e56]: → Open to Senior FE-AI Roles
+  - region "About" [ref=e57]:
+    - generic [ref=e58]:
+      - heading "About" [level=2] [ref=e60]
+      - generic [ref=e61]:
+        - paragraph [ref=e63]: I'm a Senior Frontend Engineer with six years of experience, currently focused on shipping production AI features — particularly around CopilotKit-powered assistants, RAG workflows, and agent-based UX patterns.
+        - paragraph [ref=e65]: "I care deeply about frontend system design at scale: the architecture decisions, the test infrastructure, the performance characteristics that determine whether a product feels solid or brittle as it grows."
+        - paragraph [ref=e68]: I'm drawn to roles where frontend thinking intersects with AI — specifically building the interfaces, interaction models, and data pipelines that make AI features feel inevitable rather than bolted on.
+  - region "Skills" [ref=e69]:
+    - generic [ref=e70]:
+      - heading "Skills" [level=2] [ref=e72]
+      - generic [ref=e81]:
+        - generic [ref=e82]:
+          - generic [ref=e83]:
+            - generic [ref=e84]: $
+            - generic [ref=e85]: lochan --stack frontend
+          - generic [ref=e86]:
+            - text: →
+            - generic [ref=e87]: react · next.js · typescript · tailwind · zustand · react-query · d3 · storybook
+        - generic [ref=e88]:
+          - generic [ref=e89]:
+            - generic [ref=e90]: $
+            - generic [ref=e91]: lochan --stack ai
+          - generic [ref=e92]:
+            - text: →
+            - generic [ref=e93]: copilotkit · langchain (familiar) · rag · vector-search · pgvector · openai-sdk · anthropic-sdk · gemini · prompt-engineering · evaluations
+        - generic [ref=e94]:
+          - generic [ref=e95]:
+            - generic [ref=e96]: $
+            - generic [ref=e97]: lochan --stack backend
+          - generic [ref=e98]:
+            - text: →
+            - generic [ref=e99]: node · express · postgres · mongodb · go (light) · grpc · rest
+        - generic [ref=e100]:
+          - generic [ref=e101]:
+            - generic [ref=e102]: $
+            - generic [ref=e103]: lochan --stack devops
+          - generic [ref=e104]:
+            - text: →
+            - generic [ref=e105]: azure · aws (basics) · github-actions · ci-cd · playwright · jest · vitest
+        - generic [ref=e106]:
+          - generic [ref=e107]:
+            - generic [ref=e108]: $
+            - generic [ref=e109]: lochan --strengths
+          - generic [ref=e110]: → shipping production AI features, frontend system design at scale, test infrastructure & coverage strategy, cross-functional collaboration
+      - paragraph [ref=e112]: Honest about levels — fluent, comfortable, and learning are clearly marked.
+  - region "Experience" [ref=e113]:
+    - generic [ref=e114]:
+      - heading "Experience" [level=2] [ref=e116]
+      - generic [ref=e117]:
+        - generic [ref=e120]:
+          - heading "Senior Frontend Engineer · CloudBees" [level=3] [ref=e122]
+          - paragraph [ref=e123]: Feb 2025 – Apr 2026 · Bengaluru
+          - paragraph [ref=e124]: Frontend-heavy full-stack on the CloudBees SaaS platform — admin dashboards, integrations, and AI-assisted product workflows.
+          - group [ref=e125]:
+            - generic "Show details" [ref=e126] [cursor=pointer]:
+              - generic [ref=e127]: Show details
+              - img [ref=e128]
+        - generic [ref=e131]:
+          - heading "Software Engineer 2 · HashedIn by Deloitte" [level=3] [ref=e133]
+          - paragraph [ref=e134]: Feb 2020 – Feb 2025 · Bengaluru
+          - paragraph [ref=e135]: Promoted from Intern → SE1 → SE2 over 5 years across e-commerce, analytics, and internal AI tooling.
+          - group [ref=e136]:
+            - generic "Show details" [ref=e137] [cursor=pointer]:
+              - generic [ref=e138]: Show details
+              - img [ref=e139]
+  - region "Projects" [ref=e141]:
+    - generic [ref=e142]:
+      - heading "Projects" [level=2] [ref=e144]
+      - generic [ref=e145]:
+        - article [ref=e147]:
+          - generic [ref=e148]: Tell me about ClipGuessr.
+          - generic [ref=e150]:
+            - generic [ref=e151]:
+              - heading "ClipGuessr" [level=3] [ref=e152]
+              - paragraph [ref=e153]: A daily movie guessing game with a 5-model Gemini fallback pipeline.
+            - generic [ref=e154]:
+              - generic [ref=e155]: Next.js 14
+              - generic [ref=e156]: TypeScript
+              - generic [ref=e157]: Supabase
+              - generic [ref=e158]: Gemini AI
+              - generic [ref=e159]: Playwright
+              - generic [ref=e160]: TMDB
+            - generic [ref=e161]:
+              - generic [ref=e162]:
+                - paragraph [ref=e163]: 100+
+                - paragraph [ref=e164]: Daily clips analyzed
+              - generic [ref=e165]:
+                - paragraph [ref=e166]: 5 Gemini models
+                - paragraph [ref=e167]: Model fallback chain
+              - generic [ref=e168]:
+                - paragraph [ref=e169]: ~₹200/month
+                - paragraph [ref=e170]: Pipeline cost
+            - generic [ref=e171]:
+              - iframe [ref=e172]:
+                - generic [active] [ref=f1e1]:
+                  - main [ref=f1e2]
+                  - alert [ref=f1e5]
+              - generic [ref=e173]: Live
+            - generic [ref=e174]:
+              - button "View Details" [ref=e175]
+              - link "GitHub" [ref=e176] [cursor=pointer]:
+                - /url: https://github.com/placeholder/clipguessr
+              - link "Live Site" [ref=e177] [cursor=pointer]:
+                - /url: https://clipguessr.app
+        - article [ref=e179]:
+          - generic [ref=e180]: Tell me about RAG-Raju.
+          - generic [ref=e182]:
+            - generic [ref=e183]:
+              - heading "RAG-Raju" [level=3] [ref=e184]
+              - paragraph [ref=e185]: A personal knowledge base that turns YouTube videos into a queryable second brain.
+            - generic [ref=e186]:
+              - generic [ref=e187]: FastAPI
+              - generic [ref=e188]: Qdrant
+              - generic [ref=e189]: WhisperX
+              - generic [ref=e190]: BGE Embeddings
+              - generic [ref=e191]: Gemini Flash
+              - generic [ref=e192]: Cross-encoder rerank
+              - generic [ref=e193]: +2 more
+            - generic [ref=e194]:
+              - generic [ref=e195]:
+                - paragraph [ref=e196]: Hybrid (Dense + BM25 + RRF)
+                - paragraph [ref=e197]: Retrieval mode
+              - generic [ref=e198]:
+                - paragraph [ref=e199]: ms-marco MiniLM
+                - paragraph [ref=e200]: Reranker
+              - generic [ref=e201]:
+                - paragraph [ref=e202]: 10-phase pipeline
+                - paragraph [ref=e203]: Architecture
+            - img "Project mockup" [ref=e210]
+            - generic [ref=e211]:
+              - button "View Details" [ref=e212]
+              - link "GitHub" [ref=e213] [cursor=pointer]:
+                - /url: https://github.com/placeholder/rag-raju
+        - article [ref=e215]:
+          - generic [ref=e216]: Tell me about QA Playwright Plugin.
+          - generic [ref=e218]:
+            - generic [ref=e219]:
+              - heading "QA Playwright Plugin" [level=3] [ref=e220]
+              - paragraph [ref=e221]: An MCP-based agent that turns natural language into Playwright tests.
+            - generic [ref=e222]:
+              - generic [ref=e223]: TypeScript
+              - generic [ref=e224]: Bun
+              - generic [ref=e225]: Gemini
+              - generic [ref=e226]: MCP SDK
+              - generic [ref=e227]: Playwright
+            - generic [ref=e228]:
+              - generic [ref=e229]:
+                - paragraph [ref=e230]: Up to 50 iterations
+                - paragraph [ref=e231]: Agent loop
+              - generic [ref=e232]:
+                - paragraph [ref=e233]: Playwright + Filesystem
+                - paragraph [ref=e234]: MCP servers
+              - generic [ref=e235]:
+                - paragraph [ref=e236]: Auto-integrates into POM repos
+                - paragraph [ref=e237]: Smart refactor
+            - generic [ref=e238]:
+              - button "View Details" [ref=e239]
+              - link "GitHub" [ref=e240] [cursor=pointer]:
+                - /url: https://github.com/placeholder/qa-playwright-plugin
+  - generic [ref=e242]:
+    - heading "Writing" [level=2] [ref=e244]
+    - generic [ref=e245]:
+      - generic [ref=e247]:
+        - heading "Five Gemini models, one fallback chain" [level=3] [ref=e248]
+        - paragraph [ref=e249]: May 2026 · 5 min read
+        - paragraph [ref=e250]: What I learned building ClipGuessr's content pipeline across flash-lite, flash, and pro tiers.
+        - generic [ref=e251]: Coming soon
+      - generic [ref=e253]:
+        - heading "Why I built RAG-Raju without LangChain" [level=3] [ref=e254]
+        - paragraph [ref=e255]: May 2026 · 5 min read
+        - paragraph [ref=e256]: On choosing primitives over abstractions when retrieval precision matters.
+        - generic [ref=e257]: Coming soon
+  - region "Get in touch" [ref=e258]:
+    - generic [ref=e259]:
+      - heading "Get in touch" [level=2] [ref=e261]
+      - paragraph [ref=e263]: Whether it is a role, a project, or just a chat about frontend AI — my inbox is open.
+      - generic [ref=e264]:
+        - generic [ref=e266]:
+          - img [ref=e267]
+          - generic [ref=e270]: Email
+          - link "Email me" [ref=e271] [cursor=pointer]:
+            - /url: mailto:lochan.vish@hotmail.com
+        - generic [ref=e273]:
+          - img [ref=e274]
+          - generic [ref=e278]: LinkedIn
+          - link "Connect" [ref=e279] [cursor=pointer]:
+            - /url: https://linkedin.com/in/lochanv
+        - generic [ref=e281]:
+          - img [ref=e282]
+          - generic [ref=e285]: GitHub
+          - link "Follow" [ref=e286] [cursor=pointer]:
+            - /url: https://github.com/placeholder
+      - generic [ref=e288]:
+        - heading "Or just ask the bot." [level=3] [ref=e289]
+        - paragraph [ref=e290]: The chatbot on this page knows this portfolio inside out. Ask it anything.
+        - button "Open chat ↘" [ref=e291]
+  - contentinfo [ref=e292]:
+    - generic [ref=e293]:
+      - paragraph [ref=e295]: "Currently: shipping a public RAG demo. Last updated April 2026."
+      - generic [ref=e296]:
+        - generic [ref=e298]:
+          - heading "Portfolio" [level=3] [ref=e299]
+          - link "About" [ref=e300] [cursor=pointer]:
+            - /url: "#about"
+          - link "Projects" [ref=e301] [cursor=pointer]:
+            - /url: "#projects"
+          - link "Experience" [ref=e302] [cursor=pointer]:
+            - /url: "#experience"
+          - link "Writing" [ref=e303] [cursor=pointer]:
+            - /url: "#writing"
+          - link "Contact" [ref=e304] [cursor=pointer]:
+            - /url: "#contact"
+        - generic [ref=e306]:
+          - heading "Connect" [level=3] [ref=e307]
+          - link "Email" [ref=e308] [cursor=pointer]:
+            - /url: mailto:lochan.vish@hotmail.com
+          - link "LinkedIn" [ref=e309] [cursor=pointer]:
+            - /url: https://linkedin.com/in/lochanv
+          - link "GitHub" [ref=e310] [cursor=pointer]:
+            - /url: https://github.com/placeholder
+        - generic [ref=e312]:
+          - heading "Built with" [level=3] [ref=e313]
+          - generic [ref=e314]: Next.js
+          - generic [ref=e315]: CopilotKit
+          - generic [ref=e316]: Vercel
+        - generic [ref=e318]:
+          - heading "Last updated" [level=3] [ref=e319]
+          - generic [ref=e320]: April 2026
+      - paragraph [ref=e323]: © 2026 Lochan Vishwanath
+  - button "Open AI chat" [ref=e324]:
+    - generic [ref=e325]: AI
+  - button "Open Next.js Dev Tools" [ref=e331] [cursor=pointer]:
+    - img [ref=e332]
+  - alert [ref=e335]

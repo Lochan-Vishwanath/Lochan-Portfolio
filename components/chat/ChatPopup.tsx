@@ -14,6 +14,34 @@ import {
   useBookCallTool,
 } from "@/lib/tools";
 
+/* ─── Global CopilotKit cleanup ─── */
+function cleanupCopilotKitUI() {
+  // Hide version notification
+  document.querySelectorAll('*').forEach((el) => {
+    const text = el.textContent || '';
+    if (text.includes('CopilotKit') && text.includes('now live')) {
+      (el as HTMLElement).style.display = 'none';
+      (el as HTMLElement).style.visibility = 'hidden';
+      (el as HTMLElement).style.opacity = '0';
+    }
+    if (text.includes('npm install') && text.includes('copilotkit')) {
+      (el as HTMLElement).style.display = 'none';
+    }
+    if (text === 'Help' || text === 'Debug') {
+      const parent = el.closest('button');
+      if (parent) parent.style.display = 'none';
+    }
+    if (text.includes('Powered by CopilotKit')) {
+      (el as HTMLElement).style.display = 'none';
+    }
+  });
+}
+
+// Run cleanup periodically
+if (typeof window !== 'undefined') {
+  setInterval(cleanupCopilotKitUI, 500);
+}
+
 /* ─── Tool-call pill ─── */
 function ToolCallPill({
   name,
@@ -158,6 +186,7 @@ export function ChatPopup() {
   const [isOpen, setIsOpen] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [popupKey, setPopupKey] = useState(0);
+  const [autoOpened, setAutoOpened] = useState(false);
 
   // Register all 8 CopilotKit frontend tools
   useResumeTool();
@@ -181,12 +210,81 @@ export function ChatPopup() {
     return () => window.removeEventListener("open-chat-panel", handler);
   }, [handleOpenChat]);
 
+  // Auto-open after 5 seconds if user hasn't interacted
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!autoOpened) {
+        setAutoOpened(true);
+        handleOpenChat();
+      }
+    }, 5000);
+
+    // Cancel auto-open if user clicks anywhere
+    const cancelAutoOpen = () => {
+      setAutoOpened(true);
+      clearTimeout(timer);
+    };
+
+    window.addEventListener("click", cancelAutoOpen, { once: true });
+    window.addEventListener("scroll", cancelAutoOpen, { once: true });
+    window.addEventListener("keydown", cancelAutoOpen, { once: true });
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("click", cancelAutoOpen);
+      window.removeEventListener("scroll", cancelAutoOpen);
+      window.removeEventListener("keydown", cancelAutoOpen);
+    };
+  }, [autoOpened, handleOpenChat]);
+
   const handleSetOpen = useCallback((open: boolean) => {
     if (!open) {
       setIsOpen(false);
       setHasError(false);
     }
   }, []);
+
+  // Hide CopilotKit notifications, banners, and branding
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const hideElements = () => {
+      // Hide version announcement
+      document.querySelectorAll('[class*="announcement"], [class*="notification"], [class*="toast"], [role="alert"]').forEach((el) => {
+        (el as HTMLElement).style.display = 'none';
+      });
+
+      // Hide npm install / update banners
+      document.querySelectorAll('[class*="banner"], [class*="upgrade"], [class*="update"]').forEach((el) => {
+        const text = el.textContent || '';
+        if (text.includes('npm install') || text.includes('update') || text.includes('version')) {
+          (el as HTMLElement).style.display = 'none';
+        }
+      });
+
+      // Hide Help and Debug buttons
+      document.querySelectorAll('button').forEach((btn) => {
+        const text = btn.textContent?.trim() || '';
+        if (text === 'Help' || text === 'Debug' || text === 'Debug ↓') {
+          (btn as HTMLElement).style.display = 'none';
+        }
+      });
+
+      // Hide "Powered by" text
+      document.querySelectorAll('div, span, footer').forEach((el) => {
+        const text = el.textContent?.trim() || '';
+        if (text.includes('Powered by CopilotKit')) {
+          (el as HTMLElement).style.display = 'none';
+        }
+      });
+    };
+
+    // Run immediately and periodically
+    hideElements();
+    const interval = setInterval(hideElements, 500);
+    
+    return () => clearInterval(interval);
+  }, [isOpen]);
 
   // Catch runtime errors from CopilotKit
   useEffect(() => {
@@ -236,7 +334,7 @@ export function ChatPopup() {
             RenderActionExecutionMessage={
               CustomRenderActionExecutionMessage as any
             }
-            className="[--copilot-kit-primary-color:#cc785c] [--copilot-kit-background-color:#181715] [--copilot-kit-separator-color:#e6dfd8] [--copilot-kit-secondary-color:#1f1e1b] [--copilot-kit-secondary-contrast-color:#ffffff] [--copilot-kit-contrast-color:#ffffff]"
+            className="[--copilot-kit-primary-color:#cc785c] [--copilot-kit-background-color:#faf9f5] [--copilot-kit-separator-color:#e6dfd8] [--copilot-kit-secondary-color:#efe9de] [--copilot-kit-secondary-contrast-color:#141413] [--copilot-kit-contrast-color:#141413]"
           />
         </div>
       )}

@@ -1,0 +1,142 @@
+/* CopilotKit UI Overrides - Match website aesthetic */
+
+/* === HIDE COPILOTKIT BRANDING & UI ELEMENTS === */
+
+/* Hide npm install/update banners by text content */
+cpk-web-inspector,
+[class*="update-banner"],
+[class*="npm-install"],
+[class*="version-mismatch"],
+[class*="upgrade"] {
+  display: none !important;
+}
+
+/* Hide any element containing npm install text */
+*:not(:has(*)) {
+  --noop: 0;
+}
+
+/* Hide Help and Debug buttons */
+.copilotKitDebugMenuTriggerButton,
+button[class*="DebugMenuTrigger"],
+button[class*="debug-menu"] {
+  display: none !important;
+}
+
+/* Hide "Powered by" branding */
+[class*="powered-by"],
+[class*="branding"],
+[class*="copilotKitFooter"] {
+  display: none !important;
+}
+
+/* === POPUP WINDOW STYLING === */
+
+/* Override popup CSS variables */
+.copilotKitPopup,
+.copilotKitWindow,
+[class*="copilotKitPopup"],
+[class*="copilotKitWindow"] {
+  --copilot-kit-primary-color: #cc785c !important;
+  --copilot-kit-contrast-color: #141413 !important;
+  --copilot-kit-secondary-contrast-color: #141413 !important;
+  --copilot-kit-background-color: #faf9f5 !important;
+  --copilot-kit-separator-color: #e6dfd8 !important;
+  --copilot-kit-secondary-color: #efe9de !important;
+}
+
+/* Popup window styling */
+.copilotKitWindow {
+  border-radius: 16px !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+  border: 1px solid #e6dfd8 !important;
+  background-color: #faf9f5 !important;
+}
+
+/* Header styling */
+[class*="window-header"] {
+  background-color: #faf9f5 !important;
+  border-bottom: 1px solid #e6dfd8 !important;
+  border-radius: 16px 16px 0 0 !important;
+}
+
+[class*="window-header"] h2,
+[class*="window-header"] [class*="title"] {
+  color: #141413 !important;
+  font-family: var(--font-fraunces), serif !important;
+  font-weight: 400 !important;
+}
+
+/* Messages area */
+[class*="messages-container"] {
+  background-color: #faf9f5 !important;
+}
+
+/* Input area */
+[class*="input-container"] {
+  background-color: #ffffff !important;
+  border-top: 1px solid #e6dfd8 !important;
+  border-radius: 0 0 16px 16px !important;
+}
+
+[class*="input"] textarea,
+[class*="input"] input {
+  background-color: #ffffff !important;
+  color: #141413 !important;
+  border: 1px solid #e6dfd8 !important;
+  border-radius: 9999px !important;
+  font-family: var(--font-inter), system-ui, sans-serif !important;
+}
+
+[class*="input"] textarea::placeholder {
+  color: #6c6a64 !important;
+}
+
+/* Send button */
+[class*="send-button"] {
+  background-color: #cc785c !important;
+  color: #ffffff !important;
+  border-radius: 50% !important;
+}
+
+/* User message bubble */
+[class*="user-message"] {
+  background-color: #cc785c !important;
+  color: #ffffff !important;
+  border-radius: 16px 16px 4px 16px !important;
+}
+
+/* Assistant message bubble */
+[class*="assistant-message"] {
+  background-color: #efe9de !important;
+  color: #141413 !important;
+  border: 1px solid #e6dfd8 !important;
+  border-radius: 16px 16px 16px 4px !important;
+}
+
+/* Initial message / welcome text */
+[class*="initial-message"] {
+  color: #3d3d3a !important;
+  font-family: var(--font-inter), system-ui, sans-serif !important;
+}
+
+/* Close button */
+[class*="close-button"] {
+  color: #6c6a64 !important;
+  background: transparent !important;
+}
+
+[class*="close-button"]:hover {
+  color: #141413 !important;
+  background-color: #efe9de !important;
+}
+
+/* Scrollbar in messages */
+[class*="messages-container"]::-webkit-scrollbar {
+  width: 6px !important;
+}
+
+[class*="messages-container"]::-webkit-scrollbar-thumb {
+  background-color: #e6dfd8 !important;
+  border-radius: 3px !important;
+}

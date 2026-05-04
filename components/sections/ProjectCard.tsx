@@ -22,13 +22,34 @@ interface ProjectCardProps {
 function IframePreview({ src }: { src: string }) {
   return (
     <div className="relative aspect-video rounded-lg overflow-hidden bg-surface-dark">
-      <iframe
-        src={src}
-        title="Live preview"
-        sandbox="allow-scripts allow-same-origin"
-        className="w-full h-full"
-        loading="lazy"
-      />
+      {/* Static placeholder - iframe removed to prevent autofocus scroll steal */}
+      <div className="w-full h-full flex flex-col items-center justify-center bg-surface-dark-soft">
+        <div className="text-center">
+          <div className="w-16 h-16 mx-auto mb-md rounded-full bg-surface-dark-elevated flex items-center justify-center">
+            <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+            </svg>
+          </div>
+          <p className="font-sans text-sm text-on-dark-soft mb-sm">Live site preview</p>
+        </div>
+      </div>
+      
+      {/* Clickable overlay */}
+      <a 
+        href={src}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute inset-0 flex items-center justify-center bg-surface-dark/40 hover:bg-surface-dark/20 transition-colors group"
+        aria-label="Open live site in new tab"
+      >
+        <span className="bg-canvas/95 text-ink font-sans text-sm font-medium px-lg py-md rounded-pill border border-hairline group-hover:bg-canvas group-hover:shadow-lg transition-all flex items-center gap-sm">
+          Open live site 
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </span>
+      </a>
+      
       <span className="absolute top-sm right-sm bg-accent-teal text-surface-dark font-mono text-xs px-sm py-xs rounded-md font-medium">
         Live
       </span>

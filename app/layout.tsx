@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { CopilotKitProvider } from "@copilotkit/react-core/v2";
+import { CopilotKit } from "@copilotkit/react-core/v2";
 import { MotionConfig } from "motion/react";
 import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
@@ -44,11 +44,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="antialiased">
-        <CopilotKitProvider runtimeUrl="/api/copilotkit">
+        <CopilotKit runtimeUrl="/api/copilotkit">
           <MotionConfig reducedMotion="user">
             {children}
           </MotionConfig>
-        </CopilotKitProvider>
+        </CopilotKit>
       </body>
     </html>
   );

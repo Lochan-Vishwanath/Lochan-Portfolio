@@ -6,10 +6,16 @@ const provider = createOpenAICompatible({
   name: "opencode",
   apiKey: process.env.OPENCODE_ZEN_API_KEY,
   baseURL: "https://opencode.ai/zen/go/v1",
+  // Disable DeepSeek thinking mode to avoid reasoning token issues with CopilotKit
+  // and reduce latency while maintaining answer quality for factual Q&A
+  transformRequestBody: (body: Record<string, unknown>) => ({
+    ...body,
+    thinking: { type: "disabled" },
+  }),
 });
 
 const agent = new BuiltInAgent({
-  model: provider("qwen3.5-plus"),
+  model: provider("deepseek-v4-flash"),
   apiKey: process.env.OPENCODE_ZEN_API_KEY,
   prompt: SYSTEM_PROMPT,
   maxSteps: 10,

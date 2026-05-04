@@ -32,6 +32,14 @@ export function Button({
   const classes = `${baseClasses} ${variantClasses[variant]} ${className}`;
 
   if (href) {
+    const isExternal = href.startsWith("http") || href.startsWith("//");
+    if (isExternal) {
+      return (
+        <a href={href} className={classes} download={download}>
+          {children}
+        </a>
+      );
+    }
     return (
       <Link href={href} className={classes} download={download}>
         {children}

@@ -44,10 +44,15 @@ export async function POST(req: Request) {
 
   const messages = body.messages;
   if (!messages || !Array.isArray(messages)) {
-    return new Response(JSON.stringify({ error: "Missing messages" }), {
-      status: 400,
-      headers: { "Content-Type": "application/json" },
-    });
+    // CopilotKit health check or initial request without messages
+    // Return empty successful response
+    return new Response(
+      JSON.stringify({ status: "ok", runtime: "remote" }),
+      {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
   }
 
   const apiKey = process.env.OPENCODE_ZEN_API_KEY;

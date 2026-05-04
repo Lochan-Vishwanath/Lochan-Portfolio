@@ -66,6 +66,8 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Safety guard: prevent CopilotKit from hiding body on connection failure */
+  display: block !important;
 }
 
 /* Custom scrollbar */

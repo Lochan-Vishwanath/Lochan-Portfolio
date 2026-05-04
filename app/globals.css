@@ -40,6 +40,7 @@
 
   /* Animations */
   --animate-glow-pulse: glow-pulse 2s ease-in-out infinite;
+  --animate-bob: bob 2s ease-in-out infinite;
 }
 
 html {
@@ -92,6 +93,11 @@ body {
 :focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
 @keyframes glow-pulse {

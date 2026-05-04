@@ -25,7 +25,7 @@ export const profile: Profile = {
   phone: "+91 8310336397",
   github: "https://github.com/placeholder",
   linkedin: "https://linkedin.com/in/lochanv",
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "https://drive.google.com/file/d/16TRhhoZuJ2lgTFIi3uQcKdc1zd3fXc20/view?usp=sharing",
   avatarUrl: "/avatar.jpg",
   availability: {
     status: "open",

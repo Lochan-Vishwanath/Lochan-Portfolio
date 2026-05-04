@@ -84,8 +84,8 @@ export function Contact() {
           </StaggerItem>
         </StaggerContainer>
 
-        {/* Coral callout CTA */}
-        <FadeIn delay={0.3}>
+        {/* Coral callout CTA - disabled until CopilotKit is ready */}
+        {/* <FadeIn delay={0.3}>
           <Card variant="callout-coral" className="text-center p-xl md:p-2xl">
             <h3 className="font-display text-2xl md:text-3xl tracking-tight text-on-primary mb-sm">
               Or just ask the bot.
@@ -100,7 +100,7 @@ export function Contact() {
               Open chat ↘
             </Button>
           </Card>
-        </FadeIn>
+        </FadeIn> */}
       </div>
     </section>
   );

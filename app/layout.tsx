@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { CopilotKit } from "@copilotkit/react-core/v2";
+// import { CopilotKit } from "@copilotkit/react-core/v2";
 import { MotionConfig } from "motion/react";
 import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+// import "./copilotkit-overrides.css";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -44,11 +45,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="antialiased">
-        <CopilotKit runtimeUrl="/api/copilotkit">
+        {/* <CopilotKit runtimeUrl="/api/copilotkit" showDevConsole={false}> */}
           <MotionConfig reducedMotion="user">
             {children}
           </MotionConfig>
-        </CopilotKit>
+        {/* </CopilotKit> */}
       </body>
     </html>
   );

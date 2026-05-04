@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { CopilotKitProvider } from "@copilotkit/react-core/v2";
 import { MotionConfig } from "motion/react";
 import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
@@ -28,6 +28,12 @@ export const metadata: Metadata = {
   title: "Lochan Vishwanath — Frontend Engineer who ships AI",
   description:
     "Senior Frontend Engineer with 6 YoE pivoting to Frontend-heavy Full-Stack with AI. Bengaluru / Remote.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#faf9f5",
 };
 
 export default function RootLayout({

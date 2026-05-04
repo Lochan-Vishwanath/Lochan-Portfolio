@@ -24,7 +24,7 @@ export const projects: Project[] = [
     tagline:
       "A daily movie guessing game with a 5-model Gemini fallback pipeline.",
     liveUrl: "https://clipguessr.app",
-    githubUrl: "https://github.com/[handle]/clipguessr",
+    githubUrl: "https://github.com/placeholder/clipguessr",
     techStack: [
       "Next.js 14",
       "TypeScript",
@@ -57,7 +57,7 @@ export const projects: Project[] = [
     tagline:
       "A personal knowledge base that turns YouTube videos into a queryable second brain.",
     liveUrl: null,
-    githubUrl: "https://github.com/[handle]/rag-raju",
+    githubUrl: "https://github.com/placeholder/rag-raju",
     techStack: [
       "FastAPI",
       "Qdrant",
@@ -87,7 +87,7 @@ export const projects: Project[] = [
     name: "QA Playwright Plugin",
     tagline: "An MCP-based agent that turns natural language into Playwright tests.",
     liveUrl: null,
-    githubUrl: "https://github.com/[handle]/qa-playwright-plugin",
+    githubUrl: "https://github.com/placeholder/qa-playwright-plugin",
     techStack: [
       "TypeScript",
       "Bun",
@@ -105,8 +105,8 @@ export const projects: Project[] = [
       "Locator strategy hierarchy (role → label → text → testid → CSS) baked into the agent's persona.",
       "Stdio-transport MCP client lets the same architecture swap browser drivers without changing the agent.",
     ],
-    previewType: "gif",
-    previewSrc: "/projects/qaplaywright-terminal.gif",
+    previewType: "screenshots",
+    previewSrc: "/projects/qaplaywright-terminal.png",
     screenshots: [],
   },
 ];

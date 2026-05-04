@@ -23,7 +23,7 @@ export const profile: Profile = {
   location: "Bengaluru, India",
   email: "lochan.vish@hotmail.com",
   phone: "+91 8310336397",
-  github: "https://github.com/[handle]",
+  github: "https://github.com/placeholder",
   linkedin: "https://linkedin.com/in/lochanv",
   resumeUrl: "/resume.pdf",
   avatarUrl: "/avatar.jpg",

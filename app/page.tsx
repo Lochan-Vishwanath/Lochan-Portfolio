@@ -11,10 +11,12 @@ import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
 import { ChatPopup } from "@/components/chat/ChatPopup";
 import { AvatarButton } from "@/components/chat/AvatarButton";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
 
 export default function Home() {
   return (
     <>
+      <ScrollProgress />
       <TopNav />
       <Hero />
       <About />

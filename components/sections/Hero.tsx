@@ -43,8 +43,8 @@ function WordFadeIn({
             className={`inline-block mr-[0.25em] ${isAI ? "text-primary" : ""}`}
             initial={
               isLastWord
-                ? { opacity: 0, y: 8, color: "#141413" }
-                : { opacity: 0, y: 8 }
+                ? { opacity: 0, y: 12, color: "#141413" }
+                : { opacity: 0, y: 12 }
             }
             animate={
               isLastWord
@@ -52,9 +52,9 @@ function WordFadeIn({
                 : { opacity: 1, y: 0 }
             }
             transition={{
-              duration: 0.3,
-              delay: 0.04 + i * 0.06,
-              ease: "easeOut",
+              duration: 0.4,
+              delay: 0.3 + i * 0.08,
+              ease: [0.25, 0.1, 0.25, 1],
             }}
             aria-hidden
           >
@@ -81,16 +81,21 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="py-section bg-canvas overflow-hidden"
+      className="pt-24 pb-section bg-canvas overflow-hidden"
       aria-labelledby="hero-heading"
     >
       <div className="max-w-6xl mx-auto px-lg">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-xxl items-center min-h-[60vh]">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.9fr] gap-xl lg:gap-xxl items-start min-h-[50vh]">
           {/* Left Column */}
-          <div className="flex flex-col gap-lg">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+            className="flex flex-col gap-lg pt-lg min-w-0"
+          >
             {/* Availability Pill */}
             <div className="inline-flex items-center gap-sm bg-surface-card border border-hairline rounded-pill px-md py-sm w-fit">
-              <div className="w-xs h-xs rounded-full bg-green-500" />
+              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
               <span className="font-sans text-sm text-ink">
                 {profile.availability.label} · {profile.availability.locations}
               </span>
@@ -99,18 +104,18 @@ export function Hero() {
             {/* H1 */}
             <h1
               id="hero-heading"
-              className="font-display text-5xl lg:text-6xl tracking-tighter text-ink leading-tight"
+              className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tighter text-ink leading-[1.1]"
             >
               <WordFadeIn text={HERO_TEXT} />
             </h1>
 
             {/* Tagline */}
-            <p className="font-sans text-lg text-body leading-relaxed max-w-xl">
+            <p className="font-sans text-lg md:text-xl text-body leading-relaxed">
               {profile.tagline}
             </p>
 
             {/* Button Row */}
-            <div className="flex flex-wrap gap-md">
+            <div className="flex flex-wrap gap-md pt-sm">
               <Button
                 variant="primary"
                 onClick={() => {
@@ -129,10 +134,15 @@ export function Hero() {
                 Download resume
               </Button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Terminal */}
-          <div className="hidden lg:block">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            className="hidden lg:block"
+          >
             <CodeWindow>
               <pre className="font-mono text-sm text-on-dark whitespace-pre-wrap">
                 {terminalContent.split("\n").map((line, i) => {
@@ -167,7 +177,7 @@ export function Hero() {
                 })}
               </pre>
             </CodeWindow>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

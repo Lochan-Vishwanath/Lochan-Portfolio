@@ -9,7 +9,7 @@ export function Card({
   children,
   className = "",
 }: CardProps) {
-  const baseClasses = "rounded-xl p-lg";
+  const baseClasses = "rounded-xl p-lg min-w-0";
 
   const variantClasses = {
     surface: "bg-surface-card border border-hairline",

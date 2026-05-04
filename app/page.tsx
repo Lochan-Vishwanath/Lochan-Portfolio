@@ -11,6 +11,8 @@ import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
 // import { ChatPopup } from "@/components/chat/ChatPopup";
 // import { AvatarButton } from "@/components/chat/AvatarButton";
+import { ChatPopup } from "@/components/chat/ChatPopup";
+import { AvatarButton } from "@/components/chat/AvatarButton";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 
 export default function Home() {
@@ -26,8 +28,8 @@ export default function Home() {
       <Writing />
       <Contact />
       <Footer />
-      {/* <ChatPopup /> */}
-      {/* <AvatarButton /> */}
+      <ChatPopup />
+      <AvatarButton />
     </>
   );
 }

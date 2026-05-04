@@ -425,7 +425,7 @@ Wave 7 (Playwright checkpoints):
   **Commit**: YES (groups with T1, T2, T3)
   - Message: `feat(data): add profile, projects, experience, skills, writing data`
 
-- [ ] 5. SpikeMark + Badge + Button components
+- [x] 5. SpikeMark + Badge + Button components
 
   **What to do**:
   - Create `components/ui/SpikeMark.tsx`: 4-spoke radial asterisk inline SVG, 16px, fill-ink. SVG with 4 lines crossing at center (like a compass rose / asterisk).
@@ -483,7 +483,7 @@ Wave 7 (Playwright checkpoints):
   **Commit**: YES (groups with T6, T7)
   - Message: `feat(ui): add SpikeMark, Badge, Button components`
 
-- [ ] 6. Card + CodeWindow + ChatBubble components
+- [x] 6. Card + CodeWindow + ChatBubble components
 
   **What to do**:
   - Create `components/ui/Card.tsx`: Cream surface card per DESIGN.md. bg-surface-card, border border-hairline, rounded-xl, p-lg. Optional variants: feature-card (same base), callout-card-coral (bg-primary text-on-primary).
@@ -541,7 +541,7 @@ Wave 7 (Playwright checkpoints):
   **Commit**: YES (groups with T5, T7)
   - Message: `feat(ui): add Card, CodeWindow, ChatBubble components`
 
-- [ ] 7. TopNav component
+- [x] 7. TopNav component
 
   **What to do**:
   - Create `components/nav/TopNav.tsx`: 64px tall, bg-canvas, sticky top-0 z-50.

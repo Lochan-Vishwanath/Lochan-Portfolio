@@ -1,0 +1,23 @@
+{
+  "active_plan": "C:\\Users\\admin\\Documents\\Lochan-Portfolio\\.sisyphus\\plans\\lochan-portfolio.md",
+  "started_at": "2026-05-04T05:50:55.370Z",
+  "session_ids": [
+    "ses_20e8970faffel5zz2G35QAyJ2G"
+  ],
+  "session_origins": {
+    "ses_20e8970faffel5zz2G35QAyJ2G": "direct"
+  },
+  "plan_name": "lochan-portfolio",
+  "agent": "atlas",
+  "task_sessions": {
+    "todo:1": {
+      "task_key": "todo:1",
+      "task_label": "1",
+      "task_title": "Project scaffolding + dependencies",
+      "session_id": "ses_20e74041effejggh9O4PVSWCpe",
+      "agent": "Sisyphus-Junior",
+      "category": "quick",
+      "updated_at": "2026-05-04T06:10:21.118Z"
+    }
+  }
+}

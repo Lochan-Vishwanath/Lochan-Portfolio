@@ -606,7 +606,7 @@ Wave 7 (Playwright checkpoints):
   **Commit**: YES (groups with T5, T6)
   - Message: `feat(nav): add TopNav with sticky header and mobile menu`
 
-- [ ] 8. Hero section + word-by-word animation
+- [x] 8. Hero section + word-by-word animation
 
   **What to do**:
   - Create `components/sections/Hero.tsx`: Full-bleed cream band, py-section.
@@ -688,7 +688,7 @@ Wave 7 (Playwright checkpoints):
   **Commit**: YES (groups with T9, T10, T11)
   - Message: `feat(sections): add Hero with word-by-word animation and terminal card`
 
-- [ ] 9. About section
+- [x] 9. About section
 
   **What to do**:
   - Create `components/sections/About.tsx`: Cream-canvas band, py-section.
@@ -742,7 +742,7 @@ Wave 7 (Playwright checkpoints):
   **Commit**: YES (groups with T8, T10, T11)
   - Message: `feat(sections): add About section with editorial copy`
 
-- [ ] 10. Skills section (dark terminal)
+- [x] 10. Skills section (dark terminal)
 
   **What to do**:
   - Create `components/sections/Skills.tsx`: Dark-navy band (bg-surface-dark), py-section.
@@ -802,7 +802,7 @@ Wave 7 (Playwright checkpoints):
   **Commit**: YES (groups with T8, T9, T11)
   - Message: `feat(sections): add Skills dark terminal section`
 
-- [ ] 11. Footer component
+- [x] 11. Footer component
 
   **What to do**:
   - Create `components/sections/Footer.tsx`: Dark-navy footer (bg-surface-dark), py-section.
@@ -861,7 +861,7 @@ Wave 7 (Playwright checkpoints):
   **Commit**: YES (groups with T8, T9, T10)
   - Message: `feat(sections): add Footer with 4-column layout`
 
-- [ ] 12. ProjectCard + ProjectModal with focus trap
+- [x] 12. ProjectCard + ProjectModal with focus trap
 
   **What to do**:
   - Create `components/sections/ProjectCard.tsx`: Renders a single project using chat-exchange layout.
@@ -945,7 +945,7 @@ Wave 7 (Playwright checkpoints):
   **Commit**: YES (groups with T13, T14, T15)
   - Message: `feat(sections): add ProjectCard with chat layout and ProjectModal with focus trap`
 
-- [ ] 13. Projects section (3 cards, chat-exchange layout)
+- [x] 13. Projects section (3 cards, chat-exchange layout)
 
   **What to do**:
   - Create `components/sections/Projects.tsx`: Cream-canvas band, py-section.
@@ -1016,7 +1016,7 @@ Wave 7 (Playwright checkpoints):
   **Commit**: YES (groups with T12, T14, T15)
   - Message: `feat(sections): add Projects section with 3 chat-exchange cards`
 
-- [ ] 14. Experience section (timeline + expandable details)
+- [x] 14. Experience section (timeline + expandable details)
 
   **What to do**:
   - Create `components/sections/Experience.tsx`: Cream-canvas band, py-section.
@@ -1084,7 +1084,7 @@ Wave 7 (Playwright checkpoints):
   **Commit**: YES (groups with T12, T13, T15)
   - Message: `feat(sections): add Experience timeline with expandable details`
 
-- [ ] 15. Writing section (placeholder cards)
+- [x] 15. Writing section (placeholder cards)
 
   **What to do**:
   - Create `components/sections/Writing.tsx`: Cream-canvas band, py-section.
@@ -1140,7 +1140,7 @@ Wave 7 (Playwright checkpoints):
   **Commit**: YES (groups with T12, T13, T14)
   - Message: `feat(sections): add Writing placeholder cards`
 
-- [ ] 16. Contact section + coral CTA card
+- [x] 16. Contact section + coral CTA card
 
   **What to do**:
   - Create `components/sections/Contact.tsx`: Cream-canvas band, py-section, max-width 720px centered.
@@ -1209,7 +1209,7 @@ Wave 7 (Playwright checkpoints):
   **Commit**: YES (groups with T17)
   - Message: `feat(sections): add Contact section with coral CTA`
 
-- [ ] 17. page.tsx composition + layout.tsx + metadata
+- [x] 17. page.tsx composition + layout.tsx + metadata
 
   **What to do**:
   - Update `app/layout.tsx`:
@@ -1277,7 +1277,7 @@ Wave 7 (Playwright checkpoints):
   **Commit**: YES (groups with T16)
   - Message: `feat(app): compose all sections in page.tsx with metadata`
 
-- [ ] 18. CopilotKit runtime route with Zen proxy
+- [x] 18. CopilotKit runtime route with Zen proxy
 
   **What to do**:
   - Create `app/api/copilotkit/route.ts`:
@@ -1349,7 +1349,7 @@ Wave 7 (Playwright checkpoints):
   **Commit**: YES (groups with T19-T22)
   - Message: `feat(copilot): add runtime route with Zen proxy and system prompt`
 
-- [ ] 19. CopilotChat wrapper + CopilotPopup styling
+- [x] 19. CopilotChat wrapper + CopilotPopup styling
 
   **What to do**:
   - Create `components/chat/CopilotChat.tsx`:
@@ -1422,7 +1422,7 @@ Wave 7 (Playwright checkpoints):
   **Commit**: YES (groups with T18, T20-T22)
   - Message: `feat(chat): add CopilotChat wrapper with custom DESIGN.md styling`
 
-- [ ] 20. 8 frontend tools (useCopilotAction)
+- [x] 20. 8 frontend tools (useCopilotAction)
 
   **What to do**:
   - Create `components/chat/ChatTools.tsx` (client component):
@@ -1495,7 +1495,7 @@ Wave 7 (Playwright checkpoints):
   **Commit**: YES (groups with T18-T22)
   - Message: `feat(chat): define 8 frontend tools with useCopilotAction`
 
-- [ ] 21. ToolCallPill component + coral border pulse
+- [x] 21. ToolCallPill component + coral border pulse
 
   **What to do**:
   - Create `components/chat/ToolCallPill.tsx`:
@@ -1564,7 +1564,7 @@ Wave 7 (Playwright checkpoints):
   **Commit**: YES (groups with T18-T22)
   - Message: `feat(chat): add ToolCallPill and coral border pulse`
 
-- [ ] 22. Chat avatar button + pulse animation + "Ask Lochan" label
+- [x] 22. Chat avatar button + pulse animation + "Ask Lochan" label
 
   **What to do**:
   - Create `components/chat/ChatAvatar.tsx` (client component):
@@ -1633,7 +1633,7 @@ Wave 7 (Playwright checkpoints):
   **Commit**: YES (groups with T18-T21)
   - Message: `feat(chat): add floating avatar button with pulse and label`
 
-- [ ] 23. CP1 — Foundation verification
+- [x] 23. CP1 — Foundation verification
 
   **What to do**:
   - Create `tests/cp1-foundation.spec.ts`
@@ -1698,7 +1698,7 @@ Wave 7 (Playwright checkpoints):
 
   **Commit**: NO (part of final verification)
 
-- [ ] 24. CP2 — Hero + About verification
+- [x] 24. CP2 — Hero + About verification
 
   **What to do**:
   - Create `tests/cp2-hero-about.spec.ts`
@@ -1759,7 +1759,7 @@ Wave 7 (Playwright checkpoints):
 
   **Commit**: NO
 
-- [ ] 25. CP3 — Projects + modals verification
+- [x] 25. CP3 — Projects + modals verification
 
   **What to do**:
   - Create `tests/cp3-projects.spec.ts`
@@ -1819,7 +1819,7 @@ Wave 7 (Playwright checkpoints):
 
   **Commit**: NO
 
-- [ ] 26. CP4 — Experience + Skills + Writing + Contact verification
+- [x] 26. CP4 — Experience + Skills + Writing + Contact verification
 
   **What to do**:
   - Create `tests/cp4-sections.spec.ts`
@@ -1875,7 +1875,7 @@ Wave 7 (Playwright checkpoints):
 
   **Commit**: NO
 
-- [ ] 27. CP5 — CopilotKit integration verification
+- [x] 27. CP5 — CopilotKit integration verification
 
   **What to do**:
   - Create `tests/cp5-chatbot.spec.ts`
@@ -1947,7 +1947,7 @@ Wave 7 (Playwright checkpoints):
 
   **Commit**: NO
 
-- [ ] 28. CP6 — Polish + responsive sweep
+- [x] 28. CP6 — Polish + responsive sweep
 
   **What to do**:
   - Create `tests/cp6-polish.spec.ts`
@@ -2016,19 +2016,19 @@ Wave 7 (Playwright checkpoints):
 > **Do NOT auto-proceed after verification. Wait for user's explicit approval before marking work complete.**
 > **Never mark F1-F4 as checked before getting user's okay.** Rejection or user feedback -> fix -> re-run -> present again -> wait for okay.
 
-- [ ] F1. **Plan Compliance Audit** — `oracle`
+- [x] F1. **Plan Compliance Audit** — `oracle`
   Read the plan end-to-end. For each "Must Have": verify implementation exists (read file, curl endpoint, run command). For each "Must NOT Have": search codebase for forbidden patterns — reject with file:line if found. Check evidence files exist in .sisyphus/evidence/. Compare deliverables against plan.
   Output: `Must Have [N/N] | Must NOT Have [N/N] | Tasks [N/N] | VERDICT: APPROVE/REJECT`
 
-- [ ] F2. **Code Quality Review** — `unspecified-high`
+- [x] F2. **Code Quality Review** — `unspecified-high`
   Run `tsc --noEmit` + linter + `npm run build`. Review all changed files for: `as any`/`@ts-ignore`, empty catches, console.log in prod, commented-out code, unused imports. Check AI slop: excessive comments, over-abstraction, generic names (data/result/item/temp).
   Output: `Build [PASS/FAIL] | Lint [PASS/FAIL] | Tests [N pass/N fail] | Files [N clean/N issues] | VERDICT`
 
-- [ ] F3. **Real Manual QA** — `unspecified-high` (+ `playwright` skill if UI)
+- [x] F3. **Real Manual QA** — `unspecified-high` (+ `playwright` skill if UI)
   Start from clean state. Execute EVERY QA scenario from EVERY task — follow exact steps, capture evidence. Test cross-task integration (features working together, not isolation). Test edge cases: empty state, invalid input, rapid actions. Save to `.sisyphus/evidence/final-qa/`.
   Output: `Scenarios [N/N pass] | Integration [N/N] | Edge Cases [N tested] | VERDICT`
 
-- [ ] F4. **Scope Fidelity Check** — `deep`
+- [x] F4. **Scope Fidelity Check** — `deep`
   For each task: read "What to do", read actual diff (git log/diff). Verify 1:1 — everything in spec was built (no missing), nothing beyond spec was built (no creep). Check "Must NOT do" compliance. Detect cross-task contamination: Task N touching Task M's files. Flag unaccounted changes.
   Output: `Tasks [N/N compliant] | Contamination [CLEAN/N issues] | Unaccounted [CLEAN/N files] | VERDICT`
 

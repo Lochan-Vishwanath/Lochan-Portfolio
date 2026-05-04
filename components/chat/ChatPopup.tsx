@@ -3,6 +3,16 @@
 import { useState, useEffect, useCallback } from "react";
 import { CopilotPopup } from "@copilotkit/react-ui";
 import "@copilotkit/react-ui/styles.css";
+import {
+  useResumeTool,
+  useProjectsTool,
+  useExperienceTool,
+  useSkillsTool,
+  useContactTool,
+  useWritingTool,
+  useAvailabilityTool,
+  useBookCallTool,
+} from "@/lib/tools";
 
 /* ─── Tool-call pill ─── */
 function ToolCallPill({
@@ -119,6 +129,16 @@ function CustomRenderActionExecutionMessage({
 export function ChatPopup() {
   const [isOpen, setIsOpen] = useState(false);
   const [popupKey, setPopupKey] = useState(0);
+
+  // Register all 8 CopilotKit frontend tools
+  useResumeTool();
+  useProjectsTool();
+  useExperienceTool();
+  useSkillsTool();
+  useContactTool();
+  useWritingTool();
+  useAvailabilityTool();
+  useBookCallTool();
 
   const handleOpenChat = useCallback(() => {
     setIsOpen(true);

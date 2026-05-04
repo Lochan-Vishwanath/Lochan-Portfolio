@@ -1,3 +1,36 @@
+export async function GET(request: Request) {
+  const url = new URL(request.url);
+  const path = url.pathname;
+
+  // Handle /api/copilotkit/info - runtime info endpoint
+  if (path.endsWith("/info")) {
+    return new Response(
+      JSON.stringify({
+        runtime: "remote",
+        version: "1.0.0",
+        agents: [],
+        actions: [],
+      }),
+      {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+  }
+
+  // Default GET handler
+  return new Response(
+    JSON.stringify({
+      runtime: "remote",
+      version: "1.0.0",
+    }),
+    {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    }
+  );
+}
+
 export async function POST(req: Request) {
   let body: Record<string, unknown>;
   try {

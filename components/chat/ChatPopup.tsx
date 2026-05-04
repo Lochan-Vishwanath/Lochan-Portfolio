@@ -14,73 +14,6 @@ import {
   useBookCallTool,
 } from "@/lib/tools";
 
-/* ─── Global CopilotKit cleanup ─── */
-function cleanupCopilotKitUI() {
-  // Hide version notification
-  document.querySelectorAll('*').forEach((el) => {
-    const text = el.textContent || '';
-    if (text.includes('CopilotKit') && text.includes('now live')) {
-      (el as HTMLElement).style.display = 'none';
-      (el as HTMLElement).style.visibility = 'hidden';
-      (el as HTMLElement).style.opacity = '0';
-    }
-    if (text.includes('npm install') && text.includes('copilotkit')) {
-      (el as HTMLElement).style.display = 'none';
-    }
-    if (text === 'Help' || text === 'Debug') {
-      const parent = el.closest('button');
-      if (parent) parent.style.display = 'none';
-    }
-    if (text.includes('Powered by CopilotKit')) {
-      (el as HTMLElement).style.display = 'none';
-    }
-  });
-}
-
-// Run cleanup periodically
-if (typeof window !== 'undefined') {
-  setInterval(cleanupCopilotKitUI, 500);
-}
-
-/* ─── Tool-call pill ─── */
-function ToolCallPill({
-  name,
-  status,
-}: {
-  name?: string;
-  status?: string;
-}) {
-  const isRunning = status === "executing";
-  const isComplete = status === "complete";
-
-  return (
-    <div
-      className={`inline-flex items-center gap-xs px-md py-xs rounded-pill font-mono text-xs border mb-sm transition-all ${
-        isRunning ? "border-primary text-primary shadow-[0_0_8px_rgba(204,120,92,0.35)]" : ""
-      } ${isComplete ? "border-accent-teal text-accent-teal" : ""} ${
-        !isRunning && !isComplete ? "border-hairline text-muted" : ""
-      }`}
-    >
-      <span
-        className={`w-2 h-2 rounded-full ${
-          isRunning
-            ? "bg-primary animate-pulse"
-            : isComplete
-            ? "bg-accent-teal"
-            : "bg-muted"
-        }`}
-        aria-hidden
-      />
-      <span className="truncate max-w-[180px]">{name || "Tool"}</span>
-      {isRunning && (
-        <span className="font-mono text-[10px] text-primary animate-pulse ml-auto">
-          running…
-        </span>
-      )}
-    </div>
-  );
-}
-
 /* ─── Custom messages container ─── */
 function CustomMessages({ children, ..._rest }: { children?: React.ReactNode }) {
   return (
@@ -91,20 +24,13 @@ function CustomMessages({ children, ..._rest }: { children?: React.ReactNode }) 
 }
 
 /* ─── Custom user message ─── */
-function CustomUserMessage({
-  message,
-}: {
-  message?: any;
-}) {
-  // CopilotKit passes message as a complex object — extract text content
+function CustomUserMessage({ message }: { message?: any }) {
   const text =
     typeof message === "string"
       ? message
       : typeof message?.content === "string"
       ? message.content
-      : message?.content?.[0]?.text ||
-        message?.displayContent ||
-        "";
+      : message?.content?.[0]?.text || message?.displayContent || "";
 
   return (
     <div className="flex justify-end w-full mb-sm">
@@ -116,20 +42,13 @@ function CustomUserMessage({
 }
 
 /* ─── Custom assistant message ─── */
-function CustomAssistantMessage({
-  message,
-}: {
-  message?: any;
-}) {
-  // CopilotKit passes message as a complex object — extract text content
+function CustomAssistantMessage({ message }: { message?: any }) {
   const text =
     typeof message === "string"
       ? message
       : typeof message?.content === "string"
       ? message.content
-      : message?.content?.[0]?.text ||
-        message?.displayContent ||
-        "";
+      : message?.content?.[0]?.text || message?.displayContent || "";
 
   return (
     <div className="flex justify-start w-full mb-sm">
@@ -140,53 +59,52 @@ function CustomAssistantMessage({
   );
 }
 
-/* ─── Custom action execution message (tool-fire pill) ─── */
-function CustomRenderActionExecutionMessage({
-  name,
-  status,
-  ..._rest
-}: {
-  name?: string;
-  status?: string;
-  [key: string]: unknown;
-}) {
-  return <ToolCallPill name={name} status={status} />;
-}
+/* ─── Branding & notification cleanup ─── */
+function useCleanupCopilotKitUI(isOpen: boolean) {
+  useEffect(() => {
+    if (!isOpen) return;
 
-/* ─── Error Fallback ─── */
-function ChatErrorFallback({ onClose }: { onClose: () => void }) {
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-      <div className="bg-canvas border border-hairline rounded-xl p-lg max-w-sm mx-lg shadow-xl">
-        <h3 className="font-display text-xl text-ink mb-sm">Chat temporarily unavailable</h3>
-        <p className="font-sans text-sm text-body mb-md">
-          The AI assistant is offline. You can still reach out via email or LinkedIn.
-        </p>
-        <div className="flex gap-md">
-          <button
-            onClick={onClose}
-            className="bg-primary text-on-primary px-md py-sm rounded-pill font-sans text-sm font-medium hover:bg-primary-active transition-colors"
-          >
-            Close
-          </button>
-          <a
-            href="mailto:lochan.vish@hotmail.com"
-            className="border border-hairline text-ink px-md py-sm rounded-pill font-sans text-sm font-medium hover:bg-surface-card transition-colors"
-          >
-            Email instead
-          </a>
-        </div>
-      </div>
-    </div>
-  );
+    const hideElements = () => {
+      // Hide version announcements, notifications, toasts
+      document.querySelectorAll('[class*="announcement"], [class*="notification"], [class*="toast"], [role="alert"]').forEach((el) => {
+        (el as HTMLElement).style.display = 'none';
+      });
+
+      // Hide npm install / update banners
+      document.querySelectorAll('[class*="banner"], [class*="upgrade"], [class*="update"]').forEach((el) => {
+        const text = el.textContent || '';
+        if (text.includes('npm install') || text.includes('update') || text.includes('version') || text.includes('now live')) {
+          (el as HTMLElement).style.display = 'none';
+        }
+      });
+
+      // Hide Help and Debug buttons
+      document.querySelectorAll('button').forEach((btn) => {
+        const text = btn.textContent?.trim() || '';
+        if (text === 'Help' || text === 'Debug' || text === 'Debug ↓') {
+          (btn as HTMLElement).style.display = 'none';
+        }
+      });
+
+      // Hide "Powered by" branding
+      document.querySelectorAll('div, span, footer, p').forEach((el) => {
+        const text = el.textContent?.trim() || '';
+        if (text.includes('Powered by CopilotKit') || (text.includes('CopilotKit') && text.includes('now live'))) {
+          (el as HTMLElement).style.display = 'none';
+        }
+      });
+    };
+
+    hideElements();
+    const interval = setInterval(hideElements, 500);
+    return () => clearInterval(interval);
+  }, [isOpen]);
 }
 
 /* ─── Main ChatPopup ─── */
 export function ChatPopup() {
   const [isOpen, setIsOpen] = useState(false);
   const [hasError, setHasError] = useState(false);
-  const [popupKey, setPopupKey] = useState(0);
-  const [autoOpened, setAutoOpened] = useState(false);
 
   // Register all 8 CopilotKit frontend tools
   useResumeTool();
@@ -201,7 +119,6 @@ export function ChatPopup() {
   const handleOpenChat = useCallback(() => {
     setIsOpen(true);
     setHasError(false);
-    setPopupKey((prev) => prev + 1);
   }, []);
 
   useEffect(() => {
@@ -210,81 +127,13 @@ export function ChatPopup() {
     return () => window.removeEventListener("open-chat-panel", handler);
   }, [handleOpenChat]);
 
-  // Auto-open after 5 seconds if user hasn't interacted
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (!autoOpened) {
-        setAutoOpened(true);
-        handleOpenChat();
-      }
-    }, 5000);
-
-    // Cancel auto-open if user clicks anywhere
-    const cancelAutoOpen = () => {
-      setAutoOpened(true);
-      clearTimeout(timer);
-    };
-
-    window.addEventListener("click", cancelAutoOpen, { once: true });
-    window.addEventListener("scroll", cancelAutoOpen, { once: true });
-    window.addEventListener("keydown", cancelAutoOpen, { once: true });
-
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener("click", cancelAutoOpen);
-      window.removeEventListener("scroll", cancelAutoOpen);
-      window.removeEventListener("keydown", cancelAutoOpen);
-    };
-  }, [autoOpened, handleOpenChat]);
-
   const handleSetOpen = useCallback((open: boolean) => {
-    if (!open) {
-      setIsOpen(false);
-      setHasError(false);
-    }
+    setIsOpen(open);
+    if (!open) setHasError(false);
   }, []);
 
-  // Hide CopilotKit notifications, banners, and branding
-  useEffect(() => {
-    if (!isOpen) return;
-
-    const hideElements = () => {
-      // Hide version announcement
-      document.querySelectorAll('[class*="announcement"], [class*="notification"], [class*="toast"], [role="alert"]').forEach((el) => {
-        (el as HTMLElement).style.display = 'none';
-      });
-
-      // Hide npm install / update banners
-      document.querySelectorAll('[class*="banner"], [class*="upgrade"], [class*="update"]').forEach((el) => {
-        const text = el.textContent || '';
-        if (text.includes('npm install') || text.includes('update') || text.includes('version')) {
-          (el as HTMLElement).style.display = 'none';
-        }
-      });
-
-      // Hide Help and Debug buttons
-      document.querySelectorAll('button').forEach((btn) => {
-        const text = btn.textContent?.trim() || '';
-        if (text === 'Help' || text === 'Debug' || text === 'Debug ↓') {
-          (btn as HTMLElement).style.display = 'none';
-        }
-      });
-
-      // Hide "Powered by" text
-      document.querySelectorAll('div, span, footer').forEach((el) => {
-        const text = el.textContent?.trim() || '';
-        if (text.includes('Powered by CopilotKit')) {
-          (el as HTMLElement).style.display = 'none';
-        }
-      });
-    };
-
-    // Run immediately and periodically
-    hideElements();
-    const interval = setInterval(hideElements, 500);
-    
-    return () => clearInterval(interval);
-  }, [isOpen]);
+  // Cleanup branding when chat is open
+  useCleanupCopilotKitUI(isOpen);
 
   // Catch runtime errors from CopilotKit
   useEffect(() => {
@@ -302,42 +151,49 @@ export function ChatPopup() {
   }, [isOpen]);
 
   if (hasError) {
-    return <ChatErrorFallback onClose={() => setHasError(false)} />;
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+        <div className="bg-canvas border border-hairline rounded-xl p-lg max-w-sm mx-lg shadow-xl">
+          <h3 className="font-display text-xl text-ink mb-sm">Chat temporarily unavailable</h3>
+          <p className="font-sans text-sm text-body mb-md">
+            The AI assistant is offline. You can still reach out via email or LinkedIn.
+          </p>
+          <div className="flex gap-md">
+            <button
+              onClick={() => setHasError(false)}
+              className="bg-primary text-on-primary px-md py-sm rounded-pill font-sans text-sm font-medium hover:bg-primary-active transition-colors"
+            >
+              Close
+            </button>
+            <a
+              href="mailto:lochan.vish@hotmail.com"
+              className="border border-hairline text-ink px-md py-sm rounded-pill font-sans text-sm font-medium hover:bg-surface-card transition-colors"
+            >
+              Email instead
+            </a>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (
-    <>
-      {/* Coral pulse keyframes */}
-      <style>{`
-        @keyframes coral-card-pulse {
-          0%, 100% { box-shadow: 0 0 0 0 rgba(204, 120, 92, 0.4); }
-          50% { box-shadow: 0 0 0 6px rgba(204, 120, 92, 0); }
-        }
-      `}</style>
-
-      {isOpen && (
-        <div onError={() => setHasError(true)}>
-          <CopilotPopup
-            key={popupKey}
-            defaultOpen
-            onSetOpen={handleSetOpen}
-            clickOutsideToClose
-            labels={{
-              title: "Ask Lochan",
-              initial:
-                "Hi! I'm Lochan's portfolio assistant. Ask me about his work, experience, or skills — I can share his resume, walk through a project, or tell you about his background.",
-              placeholder: "Ask about Lochan…",
-            }}
-            Messages={CustomMessages}
-            UserMessage={CustomUserMessage}
-            AssistantMessage={CustomAssistantMessage}
-            RenderActionExecutionMessage={
-              CustomRenderActionExecutionMessage as any
-            }
-            className="[--copilot-kit-primary-color:#cc785c] [--copilot-kit-background-color:#faf9f5] [--copilot-kit-separator-color:#e6dfd8] [--copilot-kit-secondary-color:#efe9de] [--copilot-kit-secondary-contrast-color:#141413] [--copilot-kit-contrast-color:#141413]"
-          />
-        </div>
-      )}
-    </>
+    <div onError={() => setHasError(true)}>
+      <CopilotPopup
+        defaultOpen={isOpen}
+        onSetOpen={handleSetOpen}
+        clickOutsideToClose
+        labels={{
+          title: "Ask Lochan",
+          initial:
+            "Hi! I'm Lochan's portfolio assistant. Ask me about his work, experience, or skills — I can share his resume, walk through a project, or tell you about his background.",
+          placeholder: "Ask about Lochan…",
+        }}
+        Messages={CustomMessages}
+        UserMessage={CustomUserMessage}
+        AssistantMessage={CustomAssistantMessage}
+        className="[--copilot-kit-primary-color:#cc785c] [--copilot-kit-background-color:#faf9f5] [--copilot-kit-separator-color:#e6dfd8] [--copilot-kit-secondary-color:#efe9de] [--copilot-kit-secondary-contrast-color:#141413] [--copilot-kit-contrast-color:#141413]"
+      />
+    </div>
   );
 }

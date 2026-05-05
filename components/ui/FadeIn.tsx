@@ -1,16 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
-import { type ReactNode, useLayoutEffect, useState } from "react";
-
-function useIsReducedMotion(): boolean {
-  const [reduced, setReduced] = useState(false);
-  const prefersReduced = useReducedMotion();
-  useLayoutEffect(() => {
-    setReduced(prefersReduced);
-  }, [prefersReduced]);
-  return reduced;
-}
+import { motion } from "motion/react";
+import { type ReactNode } from "react";
 
 interface FadeInProps {
   children: ReactNode;
@@ -29,8 +20,6 @@ export function FadeIn({
   className = "",
   once = true,
 }: FadeInProps) {
-  const reduceMotion = useIsReducedMotion();
-
   const directions = {
     up: { y: 30 },
     down: { y: -30 },
@@ -38,10 +27,6 @@ export function FadeIn({
     right: { x: -30 },
     none: {},
   };
-
-  if (reduceMotion) {
-    return <div className={className}>{children}</div>;
-  }
 
   return (
     <motion.div
@@ -71,12 +56,6 @@ export function StaggerContainer({
   staggerDelay = 0.1,
   className = "",
 }: StaggerContainerProps) {
-  const reduceMotion = useIsReducedMotion();
-
-  if (reduceMotion) {
-    return <div className={className}>{children}</div>;
-  }
-
   return (
     <motion.div
       initial="hidden"
@@ -104,12 +83,6 @@ export function StaggerItem({
   children: ReactNode;
   className?: string;
 }) {
-  const reduceMotion = useIsReducedMotion();
-
-  if (reduceMotion) {
-    return <div className={className}>{children}</div>;
-  }
-
   return (
     <motion.div
       variants={{

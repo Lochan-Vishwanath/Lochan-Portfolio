@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion, useReducedMotion } from "motion/react";
+import { useEffect, useState } from "react";
+import { motion } from "motion/react";
 import { CodeWindow } from "@/components/ui/CodeWindow";
 import { Button } from "@/components/ui/Button";
 import { profile } from "@/lib/data/profile";
@@ -16,23 +16,18 @@ function WordFadeIn({
   text: string;
   className?: string;
 }) {
-  const reduceMotion = useReducedMotion();
   const [mounted, setMounted] = useState(false);
-  const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  if (!mounted || reduceMotion) {
-    if (text === "AI." || text === "AI") {
-      return <span className={`text-primary ${className}`}>{text}</span>;
-    }
+  if (!mounted) {
     return <span className={className}>{text}</span>;
   }
 
   return (
-    <span ref={ref} className={className} aria-label={HERO_TEXT}>
+    <span className={className} aria-label={HERO_TEXT}>
       {WORDS.map((word, i) => {
         const isLastWord = i === WORDS.length - 1;
         const isAI = word === "AI.";

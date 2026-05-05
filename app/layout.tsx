@@ -46,7 +46,7 @@ export default function RootLayout({
     <html lang="en" className={`${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="antialiased">
         <CopilotKit runtimeUrl="/api/copilotkit" showDevConsole={false} useSingleEndpoint>
-          <MotionConfig reducedMotion="user">
+          <MotionConfig reducedMotion="never">
             {children}
           </MotionConfig>
         </CopilotKit>

@@ -43,7 +43,7 @@ export function useProjectsTool() {
           <div className="flex flex-col gap-sm p-md bg-surface-card border border-hairline rounded-xl">
             <span className="font-sans text-sm font-medium text-ink">Projects</span>
             <div className="grid grid-cols-1 gap-sm">
-              {items.map((p: any) => (
+              {items.map((p: { name: string; tagline: string; liveUrl?: string; techStack?: string[] }) => (
                 <ProjectCard key={p.name} name={p.name} tagline={p.tagline} liveUrl={p.liveUrl} techStack={p.techStack || []} />
               ))}
             </div>

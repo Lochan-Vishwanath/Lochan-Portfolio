@@ -22,7 +22,7 @@ export function useWritingTool() {
           <div className="flex flex-col gap-sm p-md bg-surface-card border border-hairline rounded-xl">
             <span className="font-sans text-sm font-medium text-ink">Writing</span>
             <div className="flex flex-col gap-sm">
-              {data.map((w: any) => (
+              {data.map((w: { title: string; url: string; description: string }) => (
                 <a key={w.title} href={w.url} target="_blank" rel="noopener noreferrer"
                   className="flex flex-col gap-xs p-sm bg-canvas border border-hairline rounded-lg hover:bg-surface-card transition-colors">
                   <span className="font-sans text-sm font-medium text-ink">{w.title}</span>

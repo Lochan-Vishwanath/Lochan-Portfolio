@@ -47,7 +47,7 @@ export function useBookCallTool() {
     name: "bookCall",
     description: "Book a call with Lochan. Returns scheduling information if available.",
     parameters: z.object({}),
-    render: ({ status, result }) => {
+    render: ({ status }) => {
       if (status === "executing" || status === "inProgress") {
         return (
           <div className="flex items-center gap-sm p-md bg-surface-card border border-hairline rounded-xl">

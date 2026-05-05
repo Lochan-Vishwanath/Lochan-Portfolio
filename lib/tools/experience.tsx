@@ -22,7 +22,7 @@ export function useExperienceTool() {
           <div className="flex flex-col gap-sm p-md bg-surface-card border border-hairline rounded-xl">
             <span className="font-sans text-sm font-medium text-ink">Experience</span>
             <div className="flex flex-col gap-sm">
-              {data.map((exp: any) => (
+              {data.map((exp: { company: string; period: string; role: string }) => (
                 <div key={exp.company} className="flex flex-col gap-xs p-sm bg-canvas border border-hairline rounded-lg">
                   <div className="flex items-center justify-between">
                     <span className="font-sans text-sm font-medium text-ink">{exp.company}</span>

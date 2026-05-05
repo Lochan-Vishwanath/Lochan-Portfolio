@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 import { CodeWindow } from "@/components/ui/CodeWindow";
 import { skillGroups, strengths } from "@/lib/data/skills";
 import { FadeIn } from "@/components/ui/FadeIn";
@@ -9,14 +9,8 @@ import type { ReactNode } from "react";
 
 function TypewriterText({ text, delay = 0, className = "" }: { text: string; delay?: number; className?: string }) {
   const [displayed, setDisplayed] = useState("");
-  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
-    if (reduceMotion) {
-      setDisplayed(text);
-      return;
-    }
-
     let currentIndex = 0;
     const timeout = setTimeout(() => {
       const interval = setInterval(() => {
@@ -32,7 +26,7 @@ function TypewriterText({ text, delay = 0, className = "" }: { text: string; del
     }, delay);
 
     return () => clearTimeout(timeout);
-  }, [text, delay, reduceMotion]);
+  }, [text, delay]);
 
   return (
     <span className={className}>
@@ -56,16 +50,11 @@ function TerminalLine({
   delay?: number;
 }) {
   const [showContent, setShowContent] = useState(false);
-  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
-    if (reduceMotion) {
-      setShowContent(true);
-      return;
-    }
     const timeout = setTimeout(() => setShowContent(true), delay + command.length * 15 + 200);
     return () => clearTimeout(timeout);
-  }, [delay, command, reduceMotion]);
+  }, [delay, command]);
 
   return (
     <motion.div

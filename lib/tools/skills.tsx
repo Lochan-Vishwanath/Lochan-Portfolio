@@ -22,7 +22,7 @@ export function useSkillsTool() {
           <div className="flex flex-col gap-sm p-md bg-surface-card border border-hairline rounded-xl">
             <span className="font-sans text-sm font-medium text-ink">Skills</span>
             <div className="flex flex-wrap gap-xs">
-              {data.skillGroups?.flatMap((g: any) => g.skills || []).map((s: string) => (
+              {data.skillGroups?.flatMap((g: { skills?: string[] }) => g.skills || []).map((s: string) => (
                 <span key={s} className="font-sans text-xs text-ink bg-canvas border border-hairline rounded-pill px-sm py-xs">{s}</span>
               ))}
             </div>

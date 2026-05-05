@@ -60,7 +60,6 @@ test.describe("CopilotKit Chatbot", () => {
 
     // Wait briefly for tool-call pill to appear during execution
     // The tool pill has className with "running" state from animation
-    const toolPill = page.locator(".inline-flex.items-center.gap-xs");
     // We accept either: pill appears briefly (during tool execution) or is absent (tool skipped)
     // Either way the final response must contain email-related content
     await input.press("Enter");

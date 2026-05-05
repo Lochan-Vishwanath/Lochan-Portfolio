@@ -1,13 +1,22 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { motion } from "motion/react";
+import Image from "next/image";
 import { CodeWindow } from "@/components/ui/CodeWindow";
 import { Button } from "@/components/ui/Button";
 import { profile } from "@/lib/data/profile";
 
 const HERO_TEXT = "Frontend engineer who ships AI.";
 const WORDS = HERO_TEXT.split(" ");
+
+function useIsClient() {
+  return useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
+}
 
 function WordFadeIn({
   text,
@@ -16,13 +25,9 @@ function WordFadeIn({
   text: string;
   className?: string;
 }) {
-  const [mounted, setMounted] = useState(false);
+  const isClient = useIsClient();
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
+  if (!isClient) {
     return <span className={className}>{text}</span>;
   }
 
@@ -93,9 +98,11 @@ export function Hero() {
             {/* Photo + Availability Row */}
             <div className="flex items-center gap-md">
               <div className="relative">
-                <img
+                <Image
                   src={avatarUrl}
                   alt={profile.name}
+                  width={64}
+                  height={64}
                   className="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover border-2 border-hairline"
                 />
                 <div className="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-green-500 border-2 border-canvas animate-pulse" />

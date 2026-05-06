@@ -14,7 +14,7 @@ export const writing: WritingEntry[] = [
     estimatedDate: "May 2026",
   },
   {
-    title: "Why I built RAG-Raju without LangChain",
+    title: "Why I built RAGmark without LangChain",
     teaser:
       "On choosing primitives over abstractions when retrieval precision matters.",
     status: "coming-soon",

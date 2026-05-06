@@ -19,18 +19,18 @@ export interface Profile {
 export const profile: Profile = {
   name: "Lochan Vishwanath",
   tagline:
-    "Frontend-heavy full-stack engineer. 6 YoE shipping SaaS, integrations, and AI-assisted product workflows.",
-  location: "Bengaluru, India",
+    "Frontend heavy full stack AI engineer. 6+ years building SaaS platforms, enterprise dashboards, and AI-powered product features (agent orchestration, tool calling, RAG).",
+  location: "Bangalore, India",
   email: "lochan.vish@hotmail.com",
   phone: "+91 8310336397",
-  github: "https://github.com/placeholder",
+  github: "https://github.com/Lochan-Vishwanath",
   linkedin: "https://linkedin.com/in/lochanv",
-  resumeUrl: "https://drive.google.com/file/d/16TRhhoZuJ2lgTFIi3uQcKdc1zd3fXc20/view?usp=sharing",
+  resumeUrl: "https://drive.google.com/file/d/1qA0vOgliFWUxdJGAU7ReDGpklO90EEZC/view?usp=sharing",
   avatarUrl: "/avatar.jpg",
   availability: {
     status: "open",
-    label: "Open to senior FE-AI roles",
-    locations: "Bengaluru / Remote",
+    label: "Open to Senior Frontend / AI roles",
+    locations: "Bangalore / Remote",
   },
-  now: "Currently: shipping a public RAG demo. Last updated April 2026.",
+  now: "Currently: Senior Frontend Engineer at CloudBees, scaling Unify AI.",
 };

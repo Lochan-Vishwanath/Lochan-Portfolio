@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 interface ButtonProps {
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "tertiary";
   href?: string;
   onClick?: () => void;
   children: React.ReactNode;
@@ -27,6 +27,8 @@ export function Button({
       "bg-primary text-on-primary hover:bg-primary-active active:bg-primary-active",
     secondary:
       "border border-hairline bg-canvas text-ink hover:bg-surface-card active:bg-surface-card",
+    tertiary:
+      "text-primary hover:text-primary-active underline underline-offset-4 decoration-primary/30 hover:decoration-primary bg-transparent border border-secondary",
   };
 
   const classes = `${baseClasses} ${variantClasses[variant]} ${className}`;

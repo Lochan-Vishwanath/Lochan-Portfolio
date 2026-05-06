@@ -33,9 +33,9 @@ function IframePreview({ src }: { src: string }) {
           <p className="font-sans text-sm text-on-dark-soft mb-sm">Live site preview</p>
         </div>
       </div>
-      
+
       {/* Clickable overlay */}
-      <a 
+      <a
         href={src}
         target="_blank"
         rel="noopener noreferrer"
@@ -43,13 +43,13 @@ function IframePreview({ src }: { src: string }) {
         aria-label="Open live site in new tab"
       >
         <span className="bg-canvas/95 text-ink font-sans text-sm font-medium px-lg py-md rounded-pill border border-hairline group-hover:bg-canvas group-hover:shadow-lg transition-all flex items-center gap-sm">
-          Open live site 
+          Open live site
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
           </svg>
         </span>
       </a>
-      
+
       <span className="absolute top-sm right-sm bg-accent-teal text-surface-dark font-mono text-xs px-sm py-xs rounded-md font-medium">
         Live
       </span>
@@ -172,19 +172,31 @@ export function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
           {renderPreview()}
 
           {/* CTA row */}
-          <div className="flex items-center gap-md pt-sm">
-            <Button onClick={() => onViewDetails(project.slug)}>
-              View Details
-            </Button>
-            <Button variant="secondary" href={githubUrl}>
-              GitHub
-            </Button>
-            {liveUrl && (
-              <Button variant="secondary" href={liveUrl}>
+          {liveUrl ? (
+            <div className="flex flex-col gap-sm pt-sm w-full">
+              <Button variant="tertiary" href={liveUrl} className="group w-full flex justify-between items-center px-3">
                 Live Site
+                <span className="group-hover:translate-x-1 transition-transform">→</span>
               </Button>
-            )}
-          </div>
+              <div className="grid grid-cols-2 gap-sm w-full">
+                <Button variant="primary" onClick={() => onViewDetails(project.slug)} className="w-full">
+                  View Details
+                </Button>
+                <Button variant="secondary" href={githubUrl} className="w-full">
+                  GitHub
+                </Button>
+              </div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 gap-sm pt-sm w-full">
+              <Button variant="primary" onClick={() => onViewDetails(project.slug)} className="w-full">
+                View Details
+              </Button>
+              <Button variant="secondary" href={githubUrl} className="w-full">
+                GitHub
+              </Button>
+            </div>
+          )}
         </div>
       </ChatBubble>
     </article>

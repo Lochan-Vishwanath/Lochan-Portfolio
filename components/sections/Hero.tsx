@@ -10,14 +10,6 @@ import { profile } from "@/lib/data/profile";
 const HERO_TEXT = "Frontend engineer who ships AI.";
 const WORDS = HERO_TEXT.split(" ");
 
-function useIsClient() {
-  return useSyncExternalStore(
-    () => () => {},
-    () => true,
-    () => false
-  );
-}
-
 function WordFadeIn({
   text,
   className = "",
@@ -25,12 +17,6 @@ function WordFadeIn({
   text: string;
   className?: string;
 }) {
-  const isClient = useIsClient();
-
-  if (!isClient) {
-    return <span className={className}>{text}</span>;
-  }
-
   return (
     <span className={className} aria-label={HERO_TEXT}>
       {WORDS.map((word, i) => {
@@ -103,6 +89,7 @@ export function Hero() {
                   alt={profile.name}
                   width={64}
                   height={64}
+                  priority
                   className="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover border-2 border-hairline"
                 />
                 <div className="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-green-500 border-2 border-canvas animate-pulse" />
@@ -144,7 +131,7 @@ export function Hero() {
                 href={profile.resumeUrl}
                 download
               >
-                Download resume
+                Download Resume
               </Button>
             </div>
           </motion.div>
